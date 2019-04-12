@@ -6,35 +6,70 @@
       <title>Squad Sync</title>
 
 
-    <link rel='stylesheet' href='css/onsenui.css'>
-    <link rel='stylesheet' href='css/onsen-css-components.css'>
-    <link rel='stylesheet' href='css/styles.css'>
+        <link rel='stylesheet' href='css/onsenui.css'>
+        <link rel='stylesheet' href='css/onsen-css-components.css'>
+        <link rel='stylesheet' href='css/styles.css'>
+        
 
+        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
+        <script>
+            //start of database connection
+            var config = {
+                apiKey: "AIzaSyCH-xQJ_IqrHqnJZfq9Cbu5z8VBy5VheFw",
+                authDomain: "squadsyncselector.firebaseapp.com",
+                databaseURL: "https://squadsyncselector.firebaseio.com",
+                projectId: "squadsyncselector",
+                storageBucket: "squadsyncselector.appspot.com",
+                messagingSenderId: "825207514774"
+              };
+            firebase.initializeApp(config);
 
+              // Get a reference to the database service
+            var database = firebase.database();
+            // write to database
+            function writeUserData(name, teamID, position) {
+              firebase.database().ref('users/' + userId).set({
+                name: name,
+                teamID: teamID,
+                position : posSel
+              });
+            }
+        </script>
 
     </head>
 
     <body>
 
-      <ons-navigator swipeable id="myNavigator" page="P-playerProfile.html"></ons-navigator>
+      <ons-navigator swipeable id="myNavigator" page="playerMenu.html"></ons-navigator>
 
 <!--page 1 player menu screen-->
         <template id="playerMenu.html">
             <ons-page id="Player Menu">
-                    <h3>Are you a...</h3>
-                    <h1>Player</h1>
 
-                    <img class="typeId" src="graphics/placeholder.png" alt="playerIcon" height="200" width="200">
+                    
 
                     <div style="text-align: center; margin-top: 30px;">
+                        <img class="typeId" src="graphics/placeholder.png" alt="playerIcon" height="200" width="200">
                         <p>
-                          <ons-input id="name" modifier="underbar" placeholder="Name" float></ons-input>
+                          <ons-input id="name" modifier="material" placeholder="Name" float></ons-input>
                         </p>
                         <p>
-                          <ons-input id="teamID" modifier="underbar" type="password" placeholder="Team ID" float></ons-input>
+                          <ons-input id="teamID" modifier="material" type="password" placeholder="Team ID" float></ons-input>
                         </p>
                         <p>
-                          <ons-input id="position" modifier="underbar" placeholder="Preferred Position" float></ons-input>
+                          <ons-select id="posSel" modifier="material">
+                            <option value="GK">Goal Keeper</option>
+                            <option value="LB">Left Back</option>
+                            <option value="LCB">Left Centre Back</option>
+                            <option value="LCB">Right Centre Back</option>
+                            <option value="RB">Right Back</option>
+                            <option value="LW">Left Wing</option>
+                            <option value="LM">Left Midfield</option>
+                            <option value="RM">Right Midfield</option>
+                            <option value="RW">Right Wing</option>
+                            <option value="CF">Centre Forward</option>
+                            <option value="ST">Striker</option>
+                          </ons-select>
                         </p>
                         <p style="margin-top: 30px;">
                           <ons-button onclick="login()">Sign in</ons-button>
@@ -48,36 +83,17 @@
         <template id="squadSelector.html">
           <ons-page id="Squad Selector">
             <ons-toolbar>
-                <div class="left">
-                    <!--<ons-toolbar-button icon="md-face"></ons-toolbar-button>-->
-                </div>
-
-                <div class="center"><h3>Player Profile</h3></div>
-                    
-                <div class="right">
-                    <ons-toolbar-button><img src="graphics/placeholder.png"></ons-toolbar-button>
-                </div>                
+                <div class="center"><h3>Squad Selector</h3></div>             
             </ons-toolbar>
+              
+            <img src="graphics/placeholder.png">
 
           </ons-page>
         </template>
                 
-
         <script src='js/onsenui.js'></script>
         <script  src="js/index.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
-        <script>
-          // Initialize Firebase
-          var config = {
-            apiKey: "AIzaSyCH-xQJ_IqrHqnJZfq9Cbu5z8VBy5VheFw",
-            authDomain: "squadsyncselector.firebaseapp.com",
-            databaseURL: "https://squadsyncselector.firebaseio.com",
-            projectId: "squadsyncselector",
-            storageBucket: "squadsyncselector.appspot.com",
-            messagingSenderId: "825207514774"
-          };
-          firebase.initializeApp(config);
-        </script>
+        
 
     </body>
 
