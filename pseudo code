@@ -1,0 +1,132 @@
+Pseudo Code
+
+FIRST NAME SECOND NAME
+Take initial of First Name . Second Name
+
+CSS Grids JS formation changes
+
+    if formation = 442 then {
+        GK value = GKinput1
+        GK position = 3
+
+        RB value = RBinput1
+        RB position = 6
+
+        CB1 value = RCBinput1
+        CB1 postion = 7
+
+        CB2 value = LCBinput1
+        CB2 position = 9
+
+        LB value = LBinput1
+        LB position = 10
+
+        RW value = RWinput1
+        RW position = 11
+
+        RM value = RMinput1
+        RM position = 12
+
+        LM value = LMinput1
+        LM position = 14
+
+        LW value = LWinput1
+        LW position = 15
+
+        ST value = STinput1
+        ST position = 17
+
+        CF value = CFinput1
+        CF position = 19
+
+    }
+
+    if formation = 433 then {
+        GK value = GKinput1
+        GK position = 3
+
+        RB value = RBinput1
+        RB position = 6
+
+        CB1 value = RCBinput1
+        CB1 postion = 7
+
+        CB2 value = LCBinput1
+        CB2 position = 9
+
+        LB value = LBinput1
+        LB position = 10
+
+        RW value = STinput2
+        RW name = ST
+        RW position = 19
+
+        RM value = RMinput1
+        RM position = 12
+
+        LM value = LMinput1
+        LM name = CM
+        LM position = 13
+
+        LW value = LWinput1
+        LW position = 14
+
+        ST value = STinput1
+        ST position = 17
+
+        CF value = CFinput1
+        CF position = 18
+
+    }
+
+    if formation = 352 then {
+        GK value = GKinput1
+        GK position = 3
+
+        RB value = RCBinput2
+        RB value = RCB
+        RB position = 7
+
+        CB1 value = RCBinput1
+        CB1 postion = 8
+
+        CB2 value = LCBinput2
+        CB2 name = CM
+        CB2 position = 13
+
+        LB value = LCBinput1
+        LB position = 10
+
+        RW value = RWinput1
+        RW position = 11
+
+        RM value = RMinput1
+        RM position = 12
+
+        LM value = LMinput1
+        LM position = 14
+
+        LW value = LWinput1
+        LW position = 15
+
+        ST value = STinput1
+        ST position = 17
+
+        CF value = CFinput1
+        CF position = 19
+
+    }
+
+
+Change Emblem
+
+    teamID on selection {
+        teamBadge image = teamID.png
+        
+        if teamID = CMDblues then
+        teamShirtsColour = blue
+        
+        if teamID = CMDRed then 
+        teamShirtsColour = red
+    }
+
