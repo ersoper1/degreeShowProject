@@ -54,7 +54,7 @@
                           <ons-input id="name" modifier="material" placeholder="Name" float></ons-input>
                         </p>
                         <p>
-                          <ons-input id="teamID" modifier="material" type="password" placeholder="Team ID" float></ons-input>
+                          <ons-select id="teamID" modifier="material" placeholder="Team ID" float onchange="imageSwap()">
                         </p>
                         <p>
                           <ons-select id="posSel" modifier="material">
@@ -72,7 +72,7 @@
                           </ons-select>
                         </p>
                         <p style="margin-top: 30px;">
-                          <ons-button onclick="login()">Sign in</ons-button>
+                          <ons-button onclick="writeUserData()">Sign in</ons-button>
                         </p>
                      </div>
             
