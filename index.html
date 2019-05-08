@@ -9,38 +9,54 @@
         <link rel='stylesheet' href='css/onsenui.css'>
         <link rel='stylesheet' href='css/onsen-css-components.css'>
         <link rel='stylesheet' href='css/styles.css'>
+        <script src="https://www.gstatic.com/firebasejs/6.0.1/firebase-app.js"></script>
         
-
-        <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
         <script>
-            //start of database connection
-            var config = {
-                apiKey: "AIzaSyCH-xQJ_IqrHqnJZfq9Cbu5z8VBy5VheFw",
-                authDomain: "squadsyncselector.firebaseapp.com",
-                databaseURL: "https://squadsyncselector.firebaseio.com",
-                projectId: "squadsyncselector",
-                storageBucket: "squadsyncselector.appspot.com",
-                messagingSenderId: "825207514774"
-              };
-            firebase.initializeApp(config);
+          // Your web app's Firebase configuration
+          var firebaseConfig = {
+            apiKey: "AIzaSyCmde3jqFv4alrD03aC6_EiGtjPDtMG7c0",
+            authDomain: "degreeshowproject.firebaseapp.com",
+            databaseURL: "https://degreeshowproject.firebaseio.com",
+            projectId: "degreeshowproject",
+            storageBucket: "degreeshowproject.appspot.com",
+            messagingSenderId: "321851209249",
+            appId: "1:321851209249:web:cfbfe961c9531fc3"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+          console.log(firebase);
+        </script>
+        
+        <script>
+            function testDatabase(){
+                var database = firebase.database();
+                var ref = database.ref("selection");
 
-              // Get a reference to the database service
-            var database = firebase.database();
-            // write to database
-            function writeUserData(name, teamID, position) {
-              firebase.database().ref('users/' + userId).set({
-                name: name,
-                teamID: teamID,
-                position : posSel
-              });
+                var data = {
+                    name: "Ellie Soper",
+                    teamID: "CMDBlue",
+                    position: "Goalkeeper"
+                }
+
+                ref.push(data);
+                console.log(data);
             }
         </script>
+        
+        <script>
+            function submitEntry() {
+                var data = {
+                    
+                }
+            }
+        </script>
+
 
     </head>
 
     <body>
 
-      <ons-navigator swipeable id="myNavigator" page="squadSelector.html"></ons-navigator>
+      <ons-navigator swipeable id="myNavigator" page="playerMenu.html"></ons-navigator>
 
 <!--page 1 player menu screen-->
         <template id="playerMenu.html">
@@ -54,7 +70,9 @@
                           <ons-input id="name" modifier="material" placeholder="Name" float></ons-input>
                         </p>
                         <p>
-                          <ons-select id="teamID" modifier="material" placeholder="Team ID" float onchange="imageSwap()">
+                          <ons-select id="teamID" modifier="material" placeholder="Team ID" float>
+                            <option value="CMDBlue">CMD Blues FC</option>
+                            <option value="CMDRed">CMD Reds UTD</option>
                         </p>
                         <p>
                           <ons-select id="posSel" modifier="material">
@@ -82,6 +100,7 @@
 <!--  page 2 Squad Selector-->
         <template id="squadSelector.html">
           <ons-page id="Squad Selector">
+              
             <ons-toolbar>
                 <div class="center"><h3>Squad Selector</h3></div>             
             </ons-toolbar>
@@ -115,7 +134,7 @@
         <script src='js/onsenui.js'></script>
         <script  src="js/index.js"></script>
         
-
+        
     </body>
 
 </html>
